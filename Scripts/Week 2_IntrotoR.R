@@ -18,5 +18,7 @@ myelephants <- c(elephant1_lb, elephant2_lb)
 
 which(myelephants == max(myelephants))
 
+2+2
+
       
       
