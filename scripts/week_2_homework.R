@@ -14,10 +14,8 @@ hw2 #print the current vector "hw2".
 # Take your hw2 vector and removed all the NAs then select all the numbers between 14 and 38 inclusive, 
 # call this vector prob1.
 
-hw2_na_removed <- na.omit(hw2) #na.omit is the function that removes all "NAs" in a vector. 
+hw2_na_removed <- hw2[!is.na(hw2)] 
 # "hw2_na_removed" is a new vector defined as the vector "hw2" with all NAs removed.
-
-# code from the answer key: prob1 <- hw2[!is.na(hw2)] 
 # is.na function checks each number in "hw2" to see if it is an "NA". 
 # "!" means NOT. !is.na(hw2) returns the numbers that are not NA in "hw2".
 
