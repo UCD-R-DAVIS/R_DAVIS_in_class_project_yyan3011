@@ -8,7 +8,7 @@ hw2 <- runif(50, 4, 50) # Define a vector called "hw2". This vector contains 50 
 hw2 <- replace(hw2, c(4,12,22,27), NA) # modifies the vector "hw2" that was defined by the previous line of code.
 # replaces the 4th, 12th, 22nd, and 27th numbers in the original "hw2" vector with "NA".
 
-hw2 #print the current vector "hw2".
+hw2 # print the current vector "hw2".
 
 ## Question 1 ----
 # Take your hw2 vector and removed all the NAs then select all the numbers between 14 and 38 inclusive, 
