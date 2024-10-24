@@ -9,23 +9,6 @@ surveys_1 <- surveys %>%
   mutate(weight_kg = weight/1000)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Homework 3 Review -----
 #Load your survey data frame with the read.csv() function. 
 surveys <-read.csv("data/portal_data_joined.csv")
