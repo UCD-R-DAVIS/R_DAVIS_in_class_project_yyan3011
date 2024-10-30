@@ -32,7 +32,7 @@ data <- data %>%
   mutate(form = case_when(year == 2024 ~ "new",
                           T ~ "old"))
 
-# Question 5
+# Question 5----
 # Identify the average steps per minute for laps by form and pace, and generate a table showing these values with old and new as separate rows and pace categories as columns. Make sure that slow speed is the second column, medium speed is the third column, and fast speed is the fourth column (hint: think about what the select() function does).
 
 form_pace <- data %>% 
@@ -47,7 +47,7 @@ form_pace_wide <- form_pace %>%
   print()
   
 
-# Question 6
+# Question 6----
 # Finally, Tyler thinks he’s been doing better since July after the doctors filmed him running again and provided new advice. Summarize the minimum, mean, median, and maximum steps per minute results for all laps (regardless of pace category) run between January - June 2024 and July - October 2024 for comparison.
 
 comparison <- data %>% 
