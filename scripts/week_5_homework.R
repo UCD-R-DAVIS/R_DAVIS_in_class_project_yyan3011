@@ -21,7 +21,7 @@ unique(surveys_long$plot_type) #check the unique values in the plot_type column 
 
 # The "surveys_long" dataframe has three column: genus, plot_type, and mean_hindfoot_length. There are 5 plot types. Each genus has some of the plot types, and each plot type for a certain genus is saved in its own row (so one genus has multiple rows depending on the plot type it has.).
 
-# The question asks us to convert the long dataframe into a wide one, where each of the unique plot type becomes its own column, and each genus will have just one row and the change. At the intersection of each genus and plot_type, the value of mean_hindfoot_length for that genus and plot_type combination is show. Therefore in the pivot_wide command, names_from should be the plot_type, values_from should be mean_hindfoot_length.  
+# The question asks us to convert the long dataframe into a wide one, where each of the unique plot type becomes its own column, and each genus will have just one row after the change. At the intersection of each genus and plot_type, the value of mean_hindfoot_length for that genus and plot_type combination is shown. Therefore in the pivot_wide command, names_from should be the plot_type, values_from should be mean_hindfoot_length.  
 
 surveys_wide <- surveys_long %>% 
   pivot_wider(names_from = plot_type, values_from = mean_hindfoot_length) %>% # convert the long datagframe to wide dataframe.
@@ -44,10 +44,11 @@ surveys$weight_cat <- ifelse(surveys$weight <= 20.00, yes = "small", #first defi
 
 # Using case_when().
 # The new column will be saved with the name weight_cat_cw to differiate from the column created using ifelse() function.
-surveys<- surveys %>% 
-  mutate(weight_cat_cw =case_when(weight <= 20.00 ~ "small", 
+surveys <- surveys %>% 
+  mutate(weight_cat_cw = case_when(weight <= 20.00 ~ "small", 
                                   weight >= 48.00 ~ "large",
                                   weight < 48.00 & weight > 20.00 ~ "medium"))
+
 
 # Using the case_when() functions, since the last condition defines the medium as weight between 20 and 48, all NA values are not captured. However, if the last condition says T ~ "medium", it will catch everything left from the previous condition, therefore NAs will be categorized as medium.
 
@@ -56,7 +57,9 @@ surveys<- surveys %>%
 # How might you soft code the values (i.e. not type them in manually) of the 1st and 3rd quartile into your conditional statements in question 2?
 
 # using the quantile() to calculate the 1st and 3rd quantile values.
-surveys<- surveys %>% 
+# the new column is saved with the name weight_cat_cw_2 to compare the results with the results from the previous steps.
+
+surveys <- surveys %>% 
   mutate(weight_cat_cw_2 =case_when(weight <= quantile(weight, 0.25, na.rm = TRUE ) ~ "small", 
                                   weight >= quantile(weight, 0.75, na.rm = TRUE) ~ "large",
                                   weight < quantile(weight, 0.75, na.rm = TRUE) & weight > quantile(weight, 0.25, na.rm = TRUE) ~ "medium"))
