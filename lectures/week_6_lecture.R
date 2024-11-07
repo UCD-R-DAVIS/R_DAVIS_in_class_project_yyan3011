@@ -1,3 +1,4 @@
+# Week 6 lecture
 # ggplot2 ----
 ## Grammar of Graphics plotting package (included in tidyverse package - you can see this when you call library(tidyverse)!)
 ## easy to use functions to produce pretty plots
