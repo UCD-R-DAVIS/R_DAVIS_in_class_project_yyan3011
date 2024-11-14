@@ -7,12 +7,6 @@ library(ggplot2)
 
 gapminder <- read_csv("https://ucd-r-davis.github.io/R-DAVIS/data/gapminder.csv") #bring in the data
 
-pg <- gapminder %>% 
-  select(country, year, pop, continent) %>% 
-  filter(year > 2000) %>% 
-  pivot_wider(names_from = year, values_from = pop)
-  #mutate(pop_change_0207 = `2007` - `2002`)
-
 pop_2002_2007 <- gapminder %>% 
   select(country, year, pop, continent) %>% 
   filter(year == 2002 | year == 2007) %>% 
